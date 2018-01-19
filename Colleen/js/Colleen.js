@@ -1,1 +1,1 @@
-function quine() { console.log(quine.toString()) }
+(function f() { console.log('(' + f.toString() + ')()') })()
