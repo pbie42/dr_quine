@@ -15,13 +15,13 @@ CC = clang
 CFLAGS = -g
 
 COLLEEN = Colleen
-COLLEEN_SRC = colleen_src/Colleen.c
+COLLEEN_SRC = src/Colleen.c
 
 GRACE = Grace
-GRACE_SRC = grace_src/Grace.c
+GRACE_SRC = src/Grace.c
 
 SULLY = Sully
-SULLY_SRC = sully_src/Sully.c
+SULLY_SRC = src/Sully.c
 
 SRC = $(COLLEEN_SRC) $(GRACE_SRC) $(SULLY_SRC)
 OBJ = $(SRC:.c=.o)
