@@ -10,45 +10,43 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pbie.filler
+CC = clang
 
-CFLAGS = -g -I includes
+CFLAGS = -g
 
-SRC = main.c \
-		src/utils/enemy_setup.c \
-		src/utils/free_play.c \
-		src/utils/malloc_real.c \
-		src/coordinates.c \
-		src/diagonal.c \
-		src/enemy.c \
-		src/ft_strhas.c \
-		src/parsing.c \
-		src/path.c \
-		src/piece.c \
-		src/placing.c \
-		src/straight.c \
-		src/territory.c \
+COLLEEN = Colleen
+COLLEEN_SRC = colleen_src/Colleen.c
 
+GRACE = Grace
+GRACE_SRC = grace_src/Grace.c
 
+SULLY = Sully
+SULLY_SRC = sully_src/Sully.c
+
+SRC = $(COLLEEN_SRC) $(GRACE_SRC) $(SULLY_SRC)
 OBJ = $(SRC:.c=.o)
+EXE = $(COLLEEN) $(GRACE) $(SULLY)
 
-all : $(NAME)
+all : $(EXE)
 
-$(NAME) : $(OBJ)
-	@make -C libft
-	@gcc $(CFLAGS) -o $(NAME) $(OBJ) -I libft/includes/libftprintf.h libft/libftprintf.a -ltermcap
-	@echo "$(NAME) created"
+$(COLLEEN): $(COLLEEN_SRC:.c=.o)
+	$(CC) -o $@ $<
 
-clean :
-	make -C libft clean
+$(GRACE): $(GRACE_SRC:.c=.o)
+	$(CC) -o $@ $<
+
+$(SULLY): $(SULLY_SRC:.c=.o)
+	$(CC) -o $@ $<
+
+%.o: %.c
+	$(CC) -o $@ -c $< $(CFLAGS)
+
+clean:
 	rm -rf $(OBJ)
-	@echo "OBJ deleted"
 
-fclean : clean
-	rm -rf $(NAME)
-	rm -rf libft/libftprintf.a
-	@echo "$(NAME) deleted"
+fclean: clean
+	rm -rf $(EXE)
 
-re : fclean all
+re: fclean all
 
 .PHONY: all clean fclean re
