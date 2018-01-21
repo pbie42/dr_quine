@@ -12,7 +12,7 @@
 
 CC = clang
 
-CFLAGS = -g
+CFLAGS = -Wall -Wextra -Werror
 
 COLLEEN = Colleen
 COLLEEN_SRC = src/Colleen.c
