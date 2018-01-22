@@ -1,5 +1,8 @@
+var { exec } = require("child_process");
+var path = require("path");
 var fs = require('fs');
-var suh = "Suh?";
 var sully = "Sully";
 var i = 5;
-/*Suh?*/(function f() { /*suh bruh?*/ while (i > 0) {fs.writeFile(sully + '_' + --i + '.js', 'var fs = require(\'fs\');\nvar suh = "Suh?";\nvar sully = "Sully";\nvar i = ' + (++i) + ';\n/*' + suh + '*/(' + f.toString() + ')()', function(err) { if (err) throw err;} ); --i;} })()
+if (path.basename(module.filename).split("_")[1]) i--;
+(function f() { /*suh bruh?*/ fs.writeFile(sully + '_' + i + '.js', 'var { exec } = require("child_process");\nvar path = require("path");\nvar fs = require(\'fs\');\nvar sully = "Sully";\nvar i = ' + (i) + ';\nif (path.basename(module.filename).split("_")[1]) i--;\n(' + f.toString() + ')()\nif (i > 0) exec(`node Sully_${i}.js`);', function(err) { if (err) throw err;} ); })()
+if (i > 0) exec(`node Sully_${i}.js`);
