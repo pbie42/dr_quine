@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pbie <marvin@42.fr>                        +#+  +:+       +#+         #
+#    By: pbie <pbie@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/15 11:55:43 by pbie              #+#    #+#              #
-#    Updated: 2016/05/19 14:54:01 by pbie             ###   ########.fr        #
+#    Updated: 2019/08/29 15:01:45 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,13 @@ CC = clang
 CFLAGS = -Wall -Wextra -Werror
 
 COLLEEN = Colleen
-COLLEEN_SRC = src/Colleen.c
+COLLEEN_SRC = Colleen.c
 
 GRACE = Grace
-GRACE_SRC = src/Grace.c
+GRACE_SRC = Grace.c
 
 SULLY = Sully
-SULLY_SRC = src/Sully.c
+SULLY_SRC = Sully.c
 
 SRC = $(COLLEEN_SRC) $(GRACE_SRC) $(SULLY_SRC)
 OBJ = $(SRC:.c=.o)
