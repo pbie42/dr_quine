@@ -31,18 +31,18 @@ GOBJ=$(addprefix $(GPATH), $(GOFILES))
 GOFILES=$(G_FILE:.s=.o)
 
 
-# NAME2= Sully
+NAME2= Sully
 
-# SPATH= Sully/
+SPATH= Sully/
 
-# S_FILE= Sully.s
+S_FILE= Sully.s
 
-# SOBJ=$(addprefix $(SPATH), $(SOFILES))
+SOBJ=$(addprefix $(SPATH), $(SOFILES))
 
-# SOFILES=$(S_FILE:.s=.o)
+SOFILES=$(S_FILE:.s=.o)
 
 
-all: $(NAME) $(NAME1) #$(NAME2)
+all: $(NAME) $(NAME1) $(NAME2)
 
 
 $(NAME): $(COBJ)
@@ -59,21 +59,21 @@ $(GPATH)%.o: $(GPATH)%.s
 	$(LNK) $(GOBJ) $(LFLAGS) -o $(GPATH)$(NAME1)
 
 
-# $(NAME2): $(SOBJ)
+$(NAME2): $(SOBJ)
 
-# $(SPATH)%.o: $(SPATH)%.s
-# 	$(CC) $(CFLAGS) $< -o $@
-# 	$(LNK) $(SOBJ) $(LFLAGS) -o $(SPATH)$(NAME2)
+$(SPATH)%.o: $(SPATH)%.s
+	$(CC) $(CFLAGS) $< -o $@
+	$(LNK) $(SOBJ) $(LFLAGS) -o $(SPATH)$(NAME2)
 
 
 clean:
 	rm -rf $(COBJ)
 	rm -rf $(GOBJ)
-	# rm -rf $(SOBJ)
+	rm -rf $(SOBJ)
 
 fclean: clean
 	rm -rf $(CPATH)$(NAME)
 	rm -rf $(GPATH)$(NAME1)
-	# rm -rf $(SPATH)$(NAME2)
+	rm -rf $(SPATH)$(NAME2)
 
 re: fclean all
